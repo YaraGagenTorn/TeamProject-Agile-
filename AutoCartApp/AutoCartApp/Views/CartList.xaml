@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoCartApp.Views.CartList">
+    <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
+        <ListView x:Name="CartListView"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement" Margin="0,2,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
+                            <Label Text="{Binding product.title}" FontSize="Medium"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding quantity}" FontAttributes="Bold"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="{Binding product.title}" FontSize="Medium"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+    </StackLayout>
+</ContentPage>
