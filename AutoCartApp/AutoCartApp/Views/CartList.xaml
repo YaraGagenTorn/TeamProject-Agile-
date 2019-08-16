@@ -20,7 +20,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Text="{Binding product.title}" FontSize="Medium"
+        <Label Text="{Binding total}" FontSize="Medium"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
     </StackLayout>
 </ContentPage>

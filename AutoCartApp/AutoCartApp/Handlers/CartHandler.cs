@@ -46,8 +46,9 @@ namespace AutoCartApp.Handlers
         }
         public static List<Item> Decompress(string hash)
         {
-            byte[] bytes = Convert.FromBase64String(hash);
             List<Item> cart = new List<Item>();
+            if (hash == null || hash == "") return cart;
+            byte[] bytes = Convert.FromBase64String(hash);
             for (int i = 0; i < bytes.Length / 8; i++)
                 cart[i] = new Item(BitConverter.ToInt32(bytes, i * 8), BitConverter.ToInt32(bytes, i * 8 + 4));
             return cart;

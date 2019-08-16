@@ -27,7 +27,8 @@ namespace AutoCartApp
 
         public App()
         {
-            MainPage = new Main();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new Main();
             //MainPage = new NavigationPage(new ProductsList());
             currentUser = database.GetUser(1);
             InitializeComponent();

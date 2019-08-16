@@ -20,7 +20,7 @@ namespace AutoCartApp.Handlers
             database.CreateTable<Product>();
             database.CreateTable<User>();
             if (database.Table<User>().Count() < 1)
-                AddUser(new User("admin", "yeetB0$$1", "", ""));
+                AddUser(new User("admin", "yeet", "", ""));
             if (database.Table<Product>().Count() < 1)
             {
                 AddProduct(new Product("Bunch O' Bananas", 5.99f, "The No1 choice for a healthy fruit thats high in vitamins", "Fruit, Potasium", "bbananas"));
@@ -90,8 +90,8 @@ namespace AutoCartApp.Handlers
         {
             lock (locker)
             {
-                List<User> users = database.Query<User>("SELECT * FROM User WHERE UserName==" + userName);
-                if (users.Count > 0) return users[1];
+                List<User> users = database.Query<User>($"SELECT * FROM User WHERE UserName='{userName}'");
+                if (users.Count > 0) return users[0];
                 else return null;
             }
         }
