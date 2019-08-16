@@ -10,9 +10,9 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
-                        <Label Text="{Binding title}" FontSize="Medium"
+                        <Label Text="{Binding Title}" FontSize="Medium"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        <Label Text="{Binding price}" FontAttributes="Bold"
+                        <Label Text="{Binding Price}" FontAttributes="Bold"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </ViewCell>

@@ -20,8 +20,7 @@ namespace AutoCartApp.Views
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MainMenuItem;
-            if (item == null)
+            if (!(e.SelectedItem is MainMenuItem item))
                 return;
 
             var page = (Page)Activator.CreateInstance(item.TargetType);

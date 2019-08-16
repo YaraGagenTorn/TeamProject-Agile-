@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoCartApp.Views.CartList">
-    <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
+    <StackLayout Orientation="Vertical">
         <ListView x:Name="CartListView"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
@@ -11,16 +11,19 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
-                            <Label Text="{Binding product.title}" FontSize="Medium"
+                            <Label Text="{Binding Product.Title}" FontSize="Medium"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding quantity}" FontAttributes="Bold"
+                            <Label Text="{Binding Quantity}" FontAttributes="Bold"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Text="{Binding total}" FontSize="Medium"
+        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0" Padding="0,10">
+            <Label Text="{Binding Total}" FontSize="Large"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button Text="Complete Order" Command="{Binding CompleteOrder}" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

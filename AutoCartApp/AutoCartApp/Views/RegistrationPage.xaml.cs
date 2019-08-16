@@ -38,7 +38,7 @@ namespace AutoCartApp.Views
                 if (result)
                     await Navigation.PushAsync(new LoginPage());
 
-        });
+            });
         }
     }
 }

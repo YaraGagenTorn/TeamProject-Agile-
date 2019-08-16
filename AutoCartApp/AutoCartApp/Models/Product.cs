@@ -9,25 +9,25 @@ namespace AutoCartApp.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string title { get; set; }
-        public float price { get; set; }
-        public float discount { get; set; }
-        public string description { get; set; }
-        public string tags { get; set; }
-        public string imageId { get; set; }
+        public string Title { get; set; }
+        public float Price { get; set; }
+        public float Discount { get; set; }
+        public string Description { get; set; }
+        public string Tags { get; set; }
+        public string ImageId { get; set; }
         public Product() { }
-        public Product(string title, float price, string description, string tags, string imageId, int discount = 0)
+        public Product(string title, float price, string description, string tags, string imageId, int discount = 1)
         {
-            this.title = title;
-            this.price = price;
-            this.description = description;
-            this.tags = tags;
-            this.imageId = imageId;
-            this.discount = discount;
+            Title = title;
+            Price = price;
+            Description = description;
+            Tags = tags;
+            ImageId = imageId;
+            Discount = discount;
         }
         public override string ToString()
         {
-            return title;
+            return Title;
         }
     }
 }

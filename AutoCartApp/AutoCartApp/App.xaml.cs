@@ -27,10 +27,10 @@ namespace AutoCartApp
 
         public App()
         {
+            currentUser = database.GetUser("admin");
             MainPage = new NavigationPage(new LoginPage());
             //MainPage = new Main();
-            //MainPage = new NavigationPage(new ProductsList());
-            currentUser = database.GetUser(1);
+            //MainPage = new NavigationPage(new CartList());
             InitializeComponent();
         }
 

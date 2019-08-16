@@ -12,13 +12,17 @@ namespace AutoCartApp.Handlers
         {
             public int Id { get; set; }
             public int Quantity { get; set; }
-            Product prod;
-            public Product product {
+            Product product;
+            public Product Product {
                 get {
-                    if (prod == null)
-                        prod = App.database.GetProduct(Id);
-                    return prod;
+                    if (product == null)
+                        product = App.database.GetProduct(Id);
+                    return product;
                 }
+            }
+            public float GetCost()
+            {
+                    return Quantity * Product.Price * Product.Discount;
             }
 
             public Item(int Id, int Quantity)
@@ -50,7 +54,7 @@ namespace AutoCartApp.Handlers
             if (hash == null || hash == "") return cart;
             byte[] bytes = Convert.FromBase64String(hash);
             for (int i = 0; i < bytes.Length / 8; i++)
-                cart[i] = new Item(BitConverter.ToInt32(bytes, i * 8), BitConverter.ToInt32(bytes, i * 8 + 4));
+                cart.Add(new Item(BitConverter.ToInt32(bytes, i * 8), BitConverter.ToInt32(bytes, i * 8 + 4)));
             return cart;
         }
     }
