@@ -31,19 +31,28 @@ namespace AutoCartApp.Views
         }
         void PutInCart()
         {
+            if(Quantity < 1)
+            {
+                this.DisplayAlert("Invalid Quantity", "Must be aleast 1 item", "Okay");
+                return;
+            }
+
             CartHandler.Item ci = new CartHandler.Item(Product.Id, Quantity);
-            List<CartHandler.Item> Items = App.database.GetCart(App.currentUser.Id);
+            User user = App.CurrentUser;
+            List<CartHandler.Item> Items = App.Database.GetCart(user.Id);
             if (App.Cart.Contains(ci)) {
                 int index = App.Cart.FindIndex(ci.Equals);
                 Items[index].Quantity += Quantity;
-                App.database.SaveCart(App.currentUser.Id, Items.ToArray());
+                App.Database.SaveCart(user.Id, Items.ToArray());
+                App.History.Add(new HistoryItem(HistoryType.ChangeQuantity) { Product = ci.Product, Title = "Product merged"});
             }
             else
             {
                 Items.Add(ci);
-                App.database.SaveCart(App.currentUser.Id, Items.ToArray());
+                App.Database.SaveCart(user.Id, Items.ToArray());
+                App.History.Add(new HistoryItem(HistoryType.AddProduct) { Product = ci.Product });
             }
-            App.database.SaveCart(App.currentUser.Id, App.Cart.ToArray());
+            App.Database.SaveCart(user.Id, App.Cart.ToArray());
             System.Console.Out.WriteLine(CartHandler.Compress(App.Cart.ToArray()));
             App.Current.MainPage.Navigation.PopModalAsync();
         }

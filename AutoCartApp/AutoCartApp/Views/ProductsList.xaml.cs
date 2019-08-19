@@ -24,7 +24,7 @@ namespace AutoCartApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Products = App.database.GetProducts();
+            Products = App.Database.GetProducts();
             ProductsListView.ItemsSource = Products;
         }
 

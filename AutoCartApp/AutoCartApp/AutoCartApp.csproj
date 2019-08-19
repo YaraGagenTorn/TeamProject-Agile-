@@ -31,4 +31,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\stock_orice.jpg" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\HistoryList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

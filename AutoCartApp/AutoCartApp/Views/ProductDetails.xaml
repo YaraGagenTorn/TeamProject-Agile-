@@ -7,12 +7,13 @@
         <StackLayout>
             <Image Source="{hndlr:ConverterImage default}" x:Name="productImg" HeightRequest="350" WidthRequest="350" Margin="8" />
             <Label Text="{Binding Product.Title}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding Product.Description}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Product.Description}" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="10,0" />
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <Button Text="Cancel" Command="{Binding Cancel}" HorizontalOptions="CenterAndExpand"/>
                 <Entry Text="{Binding Quantity}" Placeholder="Quantity" HorizontalOptions="Fill" WidthRequest="120" />
                 <Button Text="Add to cart" Command="{Binding AddToCart}" HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
+            <Label Text="{Binding Product.Tags}" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="10,0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

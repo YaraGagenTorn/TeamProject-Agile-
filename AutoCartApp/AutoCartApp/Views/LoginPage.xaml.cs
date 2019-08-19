@@ -17,21 +17,23 @@ namespace AutoCartApp.Views
 	{
 		public LoginPage ()
 		{
+            Title = "Auto Cart Login";
 			InitializeComponent ();
 		}
 
-         async void SignUp_Button_Clicked(object sender, EventArgs e)
+        async void SignUp_Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RegistrationPage());
         }
 
-        async void Login_Button_Clicked(object sender, EventArgs e)
+        void Login_Button_Clicked(object sender, EventArgs e)
         {
 
-            User user = App.database.GetUser(EntryUser.Text);
+            User user = App.Database.GetUser(EntryUser.Text);
             if (user != null && user.Password.Equals(EntryPassword.Text))
             {
-                App.currentUser = user;
+                App.CurrentUser = user;
+                App.History.Add(new HistoryItem(HistoryType.LoginAccount) { Title = user.UserName });
                 App.Current.MainPage = new Main();
             }
             else
@@ -48,7 +50,7 @@ namespace AutoCartApp.Views
                     }
 
                 });
-            }                
+            }
         }
     }
 }

@@ -15,16 +15,10 @@ namespace AutoCartApp.Handlers
         public Database()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
-            database.DropTable<Product>(); database.DropTable<User>();
             database.CreateTable<Product>();
             database.CreateTable<User>();
             if (database.Table<User>().Count() < 1)
-                AddUser(new User("admin", "yeet", "", "")
-                {
-                    ProductCart = CartHandler.Compress(new CartHandler.Item[] {
-                        new CartHandler.Item(1, 2)
-                    })
-                });
+                AddUser(new User("admin", "yeet", "", ""));
             if (database.Table<Product>().Count() < 1)
             {
                 AddProduct(new Product("Bunch O' Bananas", 5.99f, "The No1 choice for a healthy fruit thats high in vitamins", "Fruit, Potasium", "bbananas"));

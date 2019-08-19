@@ -34,7 +34,8 @@ namespace AutoCartApp.Views
                 MenuItems = new ObservableCollection<MainMenuItem>(new[]
                 {
                     new MainMenuItem { Id = 0, Title = "Products" , TargetType = typeof(ProductsList) },
-                    new MainMenuItem { Id = 1, Title = "Cart" , TargetType = typeof(CartList) },
+                    new MainMenuItem { Id = 1, Title = "Shopping Cart" , TargetType = typeof(CartList) },
+                    new MainMenuItem { Id = 2, Title = "Session History" , TargetType = typeof(HistoryList) },
                 });
             }
 

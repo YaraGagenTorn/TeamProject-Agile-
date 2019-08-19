@@ -1,11 +1,18 @@
 ﻿using AutoCartApp.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using static AutoCartApp.Handlers.CartHandler;
 
 namespace AutoCartApp.Handlers
 {
+    public enum CartSorting
+    {
+        New_Old,
+        Alpha_Zeta,
+        Cheap_Expensive
+    }
     public class CartHandler
     {
         public class Item : IEquatable<Item>
@@ -16,13 +23,13 @@ namespace AutoCartApp.Handlers
             public Product Product {
                 get {
                     if (product == null)
-                        product = App.database.GetProduct(Id);
+                        product = App.Database.GetProduct(Id);
                     return product;
                 }
             }
             public float GetCost()
             {
-                    return Quantity * Product.Price * Product.Discount;
+                return Quantity * Product.Price * Product.Discount;
             }
 
             public Item(int Id, int Quantity)
@@ -30,7 +37,7 @@ namespace AutoCartApp.Handlers
                 this.Id = Id;
                 this.Quantity = Quantity;
             }
-
+           
             public bool Equals(Item other)
             {
                 return Id.Equals(other.Id);
