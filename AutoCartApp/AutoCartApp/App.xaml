@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:hndlr="clr-namespace:AutoCartApp.Handlers"
+             x:Class="AutoCartApp.App">
+  <Application.Resources>
+        <ResourceDictionary>
+            <hndlr:ConverterImage x:Key="ConvertImage"/>
+            <hndlr:ConverterDiscount x:Key="ConvertDiscountColor"/>
+            <hndlr:ConverterPrice x:Key="ConvertDiscountCost"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

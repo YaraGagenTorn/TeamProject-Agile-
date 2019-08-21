@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoCartApp.Views.CartList">
+    <StackLayout Orientation="Vertical">
+        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0" Padding="0,4">
+            <Label Text="Sort by" FontSize="Large" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button x:Name="SortButton" Text="Date Added" Command="{Binding SortCommand}" HorizontalOptions="StartAndExpand" WidthRequest="130"/>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0">
+            <Label Text="Quantity" FontSize="Large" HorizontalOptions="Start" Margin="20,0"/>
+            <Label Text="Title" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Cost" FontSize="Large" HorizontalOptions="End" Margin="12,0"/>
+        </StackLayout>
+        <ListView x:Name="CartListView" ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped" Margin="0,2,0,0" CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="{Binding Product.Discount, Converter={StaticResource ConvertDiscountColor}}" Orientation="Horizontal" Margin="0,2">
+                            <Label Text="{Binding Quantity}" FontAttributes="Bold" Margin="12,0"
+                                   HorizontalOptions="Start" VerticalOptions="CenterAndExpand" WidthRequest="50"/>
+                            <Label Text="{Binding Product.Title}" FontSize="Medium"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Product.FinalPrice}" FontSize="Medium" Margin="12,0"
+                                   HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="50"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0" Padding="0,10">
+            <Label Text="{Binding Total}" FontSize="Large"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button Text="Complete Order" Command="{Binding CompleteOrder}" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
