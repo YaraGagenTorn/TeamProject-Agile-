@@ -29,7 +29,7 @@ namespace AutoCartApp.Handlers
             }
             public float GetCost()
             {
-                return Quantity * Product.Price * Product.Discount;
+                return Quantity * Product.FinalPrice;
             }
 
             public Item(int Id, int Quantity)

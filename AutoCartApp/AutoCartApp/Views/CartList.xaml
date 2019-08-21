@@ -17,12 +17,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
+                        <StackLayout BackgroundColor="{Binding Product.Discount, Converter={StaticResource ConvertDiscountColor}}" Orientation="Horizontal" Margin="0,2">
                             <Label Text="{Binding Quantity}" FontAttributes="Bold" Margin="12,0"
                                    HorizontalOptions="Start" VerticalOptions="CenterAndExpand" WidthRequest="50"/>
                             <Label Text="{Binding Product.Title}" FontSize="Medium"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Label Text="{Binding Product.Price}" FontSize="Medium" Margin="12,0"
+                            <Label Text="{Binding Product.FinalPrice}" FontSize="Medium" Margin="12,0"
                                    HorizontalOptions="End" VerticalOptions="CenterAndExpand" WidthRequest="50"/>
                         </StackLayout>
                     </ViewCell>

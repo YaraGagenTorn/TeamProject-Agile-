@@ -23,7 +23,9 @@ namespace AutoCartApp.Handlers
             {
                 AddProduct(new Product("Bunch O' Bananas", 5.99f, "The No1 choice for a healthy fruit thats high in vitamins", "Fruit, Potasium", "bbananas"));
                 AddProduct(new Product("Organic Rice 1kg", 4.49f, "Imported fresh to you", "Grain, Fiber", "orice"));
-                AddProduct(new Product("Tegel frozen chicken", 11f, "Free range chicken", "Meat, Protien, Selenium", "tchicken"));
+                AddProduct(new Product("Tegel frozen chicken", 11f, "Free range chicken", "Meat, Protein, Selenium", "tchicken", 0.7f));
+                AddProduct(new Product("Loose Oranges", 1.99f, "Cost is per orange", "Fruit, Vitamin C", "lorange"));
+                AddProduct(new Product("Lipton Green Tea", 8.0f, "Refreshing natural tea", "Tea, Drink", "lgtea", 0.75f));
                 //AddProduct(new Product("Placeholder", 10.99f, "Missing Image file test", "Meat, Protien, Selenium", "yeet"));
             }
         }
@@ -46,6 +48,13 @@ namespace AutoCartApp.Handlers
             lock (locker)
             {
                 return database.Query<Product>("SELECT * FROM Product");
+            }
+        }
+        public List<Product> GetSpecialProducts()
+        {
+            lock (locker)
+            {
+                return database.Query<Product>("SELECT * FROM Product WHERE Discount<1");
             }
         }
         public int GetProductKey()
