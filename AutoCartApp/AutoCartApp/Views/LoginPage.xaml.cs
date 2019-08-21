@@ -37,20 +37,7 @@ namespace AutoCartApp.Views
                 App.Current.MainPage = new Main();
             }
             else
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    var result = await this.DisplayAlert("Error", "Failed User Name and Password", "Yes", "Cancel");
-
-                    if (result)
-                        await Navigation.PushAsync(new LoginPage());
-                    else
-                    {
-                        await Navigation.PushAsync(new LoginPage());
-                    }
-
-                });
-            }
+                this.DisplayAlert("Error", "Failed User Name and Password", "Okay");
         }
     }
 }

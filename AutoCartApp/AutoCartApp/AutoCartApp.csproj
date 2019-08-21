@@ -12,6 +12,8 @@
   <ItemGroup>
     <None Remove="Assets\stock_bbananas.jpg" />
     <None Remove="Assets\stock_default.jpg" />
+    <None Remove="Assets\stock_lgtea.jpg" />
+    <None Remove="Assets\stock_lorange.jpg" />
     <None Remove="Assets\stock_orice.jpg" />
     <None Remove="Assets\stock_tchicken.jpg" />
   </ItemGroup>
@@ -19,6 +21,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\stock_bbananas.jpg" />
     <EmbeddedResource Include="Assets\stock_default.jpg" />
+    <EmbeddedResource Include="Assets\stock_lgtea.jpg" />
+    <EmbeddedResource Include="Assets\stock_lorange.jpg" />
     <EmbeddedResource Include="Assets\stock_tchicken.jpg" />
   </ItemGroup>
 

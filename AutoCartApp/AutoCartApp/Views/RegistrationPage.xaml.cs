@@ -25,13 +25,13 @@ namespace AutoCartApp.Views
         private void RegButton_Clicked(object sender, EventArgs e)
         {
             Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (EntryUserName.Text.Length < 4)
+            if (EntryUserName.Text == null || EntryUserName.Text.Length < 4)
                 this.DisplayAlert("Invalid Information", "User Name must be atleast 4 characters", "Okay");
-            else if (EntryUserPassword.Text.Length < 6)
+            else if (EntryUserPassword.Text == null || EntryUserPassword.Text.Length < 6)
                 this.DisplayAlert("Invalid Information", "User Password must be atleast 6 characters", "Okay");
             else if (EntryUserEmail.Text == null || !EmailRegex.IsMatch(EntryUserEmail.Text))
                 this.DisplayAlert("Invalid Information", "Email Invalid please enter your email", "Okay");
-            else if (EntryUserPhoneNumber.Text.Length < 8)
+            else if (EntryUserPhoneNumber.Text == null || EntryUserPhoneNumber.Text.Length < 8)
                 this.DisplayAlert("Invalid Information", "Phone number must be atleast 8 digits", "Okay");
             else
             {

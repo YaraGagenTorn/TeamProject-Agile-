@@ -6,19 +6,29 @@
     <ContentPage.Content>
         <StackLayout>
             <Image Source="{hndlr:ConverterImage default}" x:Name="productImg" HeightRequest="350" WidthRequest="350" Margin="8" />
-            <Label Text="{Binding Product.Title}" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Product.Title}" FontSize="Large" HorizontalOptions="Start"  FontAttributes="Bold" Margin="30,0"/>
+            <StackLayout BackgroundColor="DarkSlateGray" HeightRequest="6" Margin="10,0"/>
+
             <StackLayout Orientation="Horizontal" VerticalOptions="End" Margin="20,0">
                 <Label Text="Current price $" FontSize="Medium" HorizontalOptions="Start" />
                 <Label Text="{Binding Product.FinalPrice}" FontSize="Medium" HorizontalOptions="Start" FontAttributes="Bold" />
                 <Label Text="{Binding Product.Discount, Converter={StaticResource ConvertDiscountCost}}" FontSize="Medium" HorizontalOptions="End" />
             </StackLayout>
-            <Label Text="{Binding Product.Description}" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="10,0" />
-            <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <Button Text="Cancel" Command="{Binding Cancel}" HorizontalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Quantity}" Placeholder="Quantity" HorizontalOptions="Fill" WidthRequest="120" />
-                <Button Text="Add to cart" Command="{Binding AddToCart}" HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
+            <Label Text="{Binding Product.Description}" FontSize="Medium" HorizontalOptions="Start" Margin="20,0" />
+
+            <StackLayout BackgroundColor="Gray" HeightRequest="6" Margin="10,0"/>
+
             <Label Text="{Binding Product.Tags}" FontSize="Medium" HorizontalOptions="CenterAndExpand" Margin="10,0" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding Cancel}" HorizontalOptions="CenterAndExpand" WidthRequest="120"/>
+                <Entry Text="{Binding Quantity}" Placeholder="Quantity" HorizontalOptions="Fill" WidthRequest="80" Keyboard="Numeric"/>
+                <Button Text="Add to cart" Command="{Binding AddToCart}" HorizontalOptions="CenterAndExpand" WidthRequest="120"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding InCart}" IsEnabled="{Binding InCart}">
+                <Label  Text="Qunatity in cart" FontSize="Medium" HorizontalOptions="CenterAndExpand" WidthRequest="120"/>
+                <Label Text="{Binding CartQuantity}" FontSize="Medium" HorizontalOptions="Fill" WidthRequest="80" />
+                <Button Text="Remove Item" Command="{Binding RemoveProduct}" HorizontalOptions="CenterAndExpand" WidthRequest="120"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

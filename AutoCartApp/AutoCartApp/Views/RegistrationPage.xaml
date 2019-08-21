@@ -3,37 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoCartApp.Views.RegistrationPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-
-                    </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0">
-                        <Entry Placeholder="UserName" FontSize="16" x:Name="EntryUserName"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="1">
-                        <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryUserPassword"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2">
-                        <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="3">
-                        <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="4">
-                        <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="Blue" Clicked="RegButton_Clicked"/>
-                    </StackLayout>
-                </Grid>
-                <Label Text="REGISTRATION"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
-        </ScrollView>
+        <StackLayout Orientation="Vertical" Margin="20,40,20,40" VerticalOptions="Start">
+            <Entry Placeholder="UserName" FontSize="16" x:Name="EntryUserName"/>
+            <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryUserPassword"/>
+            <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
+            <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
+            <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" 
+                    TextColor="White" BackgroundColor="Blue" Clicked="RegButton_Clicked"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

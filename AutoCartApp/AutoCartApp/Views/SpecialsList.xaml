@@ -9,11 +9,17 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout BackgroundColor="#e3ecfa" Orientation="Horizontal" Margin="0,2">
-                        <Label Text="{Binding Title}" FontSize="Medium"
+                    <StackLayout BackgroundColor="#c2f97c" Orientation="Vertical" Margin="0,2">
+                        <StackLayout Orientation="Horizontal" Margin="0,2">
+                            <Label Text="{Binding Title}" FontSize="Medium"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        <Label Text="{Binding FinalPrice}" FontAttributes="Bold"
+                            <Label Text="{Binding FinalPrice}" FontAttributes="Bold"
                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Price}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Product.Discount, Converter={StaticResource ConvertDiscountCost}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
